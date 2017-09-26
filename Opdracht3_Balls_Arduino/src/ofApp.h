@@ -29,7 +29,7 @@ private:
     
     void analogPinChanged(const int& pinNum);
     
-    int buttonPin;
+    
     bool buttonState;
     int potValue;
 };

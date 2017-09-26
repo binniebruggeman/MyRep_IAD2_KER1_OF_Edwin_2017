@@ -14,8 +14,7 @@ void ofApp::setup() {
     // use the same device name used in the Arduino IDE
     arduino.connect("/dev/arduino");
     arduino.sendFirmwareVersionRequest(); // workaround for ofArduino/firmata bug
-    
-    buttonPin = 12;
+
 }
 
 void ofApp::update() {
@@ -48,7 +47,7 @@ void ofApp::setupArduino(const int& version) {
     << " v" << arduino.getMajorFirmwareVersion() << "." << arduino.getMinorFirmwareVersion();
     
     arduino.sendDigitalPinMode(PIN_LED, ARD_OUTPUT);
-    arduino.sendDigitalPinMode(buttonPin, ARD_INPUT);
+    arduino.sendDigitalPinMode(PIN_BUTTON, ARD_INPUT);
     arduino.sendAnalogPinReporting(PIN_LDR, ARD_ANALOG);
     arduino.sendAnalogPinReporting(PIN_POTMETER, ARD_ANALOG);
     
@@ -62,7 +61,7 @@ void ofApp::digitalPinChanged(const int& pinNum) {
     ofLogNotice() << "Digital Pin " << pinNum << " value: " << arduino.getDigital(pinNum) << endl;
     
     //get the value on the pin that the button is connected to
-    buttonState= arduino.getDigital(buttonPin);
+    buttonState= arduino.getDigital(bPIN_BUTTON);
     
     if(buttonState == 0){
     Ball newBall;
