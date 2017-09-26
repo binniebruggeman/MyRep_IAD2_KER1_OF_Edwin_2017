@@ -17,6 +17,7 @@ void Ball::setup(){
     ballParameters.add(radius.set("radius", 50, 15, 250));
     
     
+    
     color.set(ofRandom(255),ofRandom(255),ofRandom(255)); // one way of defining digital color is by adddressing its 3 components individually (Red, Green, Blue) in a value from 0-255, in this example we're setting each to a random value
 }
 
@@ -45,4 +46,5 @@ void Ball::update(){
 void Ball::draw(){
     ofSetColor(color);
     ofDrawCircle(x, y, radius);
+   
 }

@@ -29,6 +29,7 @@ public:
     ofParameter<float> speedY;
     ofParameter<int> radius;
     
+    
 private:
     
 };
